@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>2020年2月全国新增确诊病例统计</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.3.0/echarts.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px;
+        }
+        
+        #echart {
+            width: 800px;
+            height: 600px;
+            margin: 10px 50px;
+            background-color: #FFFFFF;
+        }
+        
+        #csvFileInput {
+            position: absolute;
+            right: 0px;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!--图表放置区域-->
+    <div id="echart"></div>
+
+    <!-- 文件读取及图表展示部分 -->
+    <script type="text/javascript">
+
+        //读取csv文件、处理数据并画图
+                //插入！！！！！！！！！！！！！！！！！！！！！
+                optionTwo = {
+    title: {
+        text: '2020年2月全国新增确诊病例统计',
+        subtext: '数据来自卫健委官网【每日更新】'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data: ['全国', '湖北以外省份']
+    },
+    toolbox: {
+        show: true,
+        feature: {
+            dataView: {show: true, readOnly: false},
+            magicType: {show: true, type: ['line', 'bar']},
+            restore: {show: true},
+            saveAsImage: {show: true}
+        }
+    },
+    calculable: true,
+    xAxis: [
+        {
+            type: 'category',
+            data : ['2.1', '2.2', '2.3', '2.4', '2.5', '2.6', '2.7','2.8','2.9','2.10','2.11','2.12','2.13','2.14','2.15'],
+            axisTick: {
+                alignWithLabel: true
+            }
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value'
+        }
+    ],
+    series: [
+        {
+            color: ['#CD0000'],
+            name: '全国',
+            type: 'bar',
+            data: [2590, 2829, 3235, 3887, 3694, 3143, 3399, 2656],
+            markPoint: {
+                data: [
+                    {type: 'max', name: '最大值'},
+                    {type: 'min', name: '最小值'}
+                ]
+            },
+            markLine: {
+                data: [
+                    {type: 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            color: ['#000080'],
+            name: '湖北以外省份',
+            type: 'bar',
+            data: [669, 726, 890, 731, 707, 696, 558, 509],
+            markPoint: {
+                data: [
+                    {name: '本月最高', value: 890, xAxis: 2, yAxis: 890},
+                    {name: '本月最低', value: 509, xAxis: 7, yAxis: 509}
+                ]
+            },
+            markLine: {
+                data: [
+                    {type: 'average', name: '平均值'}
+                ]
+            }
+        }
+    ]
+};
+                //插入完毕！！！！！！！！！！！！！！！！！
+                //饼图展示部分，先初始化一个图表对象
+                var myChartTwo = echarts.init(document.getElementById('echart'));
+                myChartTwo.setOption(optionTwo);
+
+    </script>
+
+</body>
+
