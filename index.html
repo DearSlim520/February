@@ -41,7 +41,7 @@
                 optionTwo = {
     title: {
         text: '2020年2月全国新增确诊病例统计',
-        subtext: '数据来自卫健委官网【每日更新】'
+        subtext: '数据来自卫健委官网【每日10:00更新】'
     },
     tooltip: {
         trigger: 'axis'
@@ -98,8 +98,8 @@
             data: [669, 726, 890, 731, 707, 696, 558, 509, 444, 381],
             markPoint: {
                 data: [
-                    {type: 'max', name: '最大值'},
-                    {type: 'min', name: '最小值'}
+                    {name: '本月最高', value: 890, xAxis: 2, yAxis: 890},
+                    {name: '本月最低', value: 381, xAxis: 9, yAxis: 381}
                 ]
             },
             markLine: {
